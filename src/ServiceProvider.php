@@ -1,6 +1,6 @@
 <?php
 
-namespace Delegator\StatamicZapier;
+namespace Delegator\ZapierForms;
 
 use Statamic\Stache\Stache;
 use Statamic\Facades\CP\Nav;
@@ -11,7 +11,7 @@ class ServiceProvider extends AddonServiceProvider
 {
     protected $listen = [
         'Statamic\Events\FormSubmitted' => [
-            'Delegator\StatamicZapier\Listeners\PushToWebhook',
+            'Delegator\ZapierForms\Listeners\PushToWebhook',
         ],
     ];
 
@@ -30,7 +30,7 @@ class ServiceProvider extends AddonServiceProvider
         $this->bootNavigation();
 
         // permissions
-        Permission::group('statamic-zapier', 'Statamic Zapier', function () {
+        Permission::group('zapier-forms', 'Zapier Forms', function () {
             Permission::register('configure form zapier webhooks')->label('Configure Webhooks');
         });
     }
@@ -49,9 +49,9 @@ class ServiceProvider extends AddonServiceProvider
     private function bootNavigation(): void
     {
         Nav::extend(function ($nav) {
-            $nav->tools('Statamic Zapier')
+            $nav->tools('Zapier Forms')
                 ->can('configure form zapier webhooks')
-                ->route('statamic-zapier.index')
+                ->route('zapier-forms.index')
                 ->icon('hierarchy-hub-integration-connection');
         });
     }

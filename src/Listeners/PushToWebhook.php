@@ -1,12 +1,12 @@
 <?php
 
-namespace Delegator\StatamicZapier\Listeners;
+namespace Delegator\ZapierForms\Listeners;
 
 use GuzzleHttp\Client;
 use Statamic\Facades\Asset;
 use Statamic\Events\FormSubmitted;
 use Illuminate\Support\Facades\Http;
-use Delegator\StatamicZapier\Webhooks;
+use Delegator\ZapierForms\Webhooks;
 
 class PushToWebhook
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Delegator\StatamicZapier;
+namespace Delegator\ZapierForms;
 
 use Illuminate\Support\Collection;
 use Statamic\Facades\Blueprint;

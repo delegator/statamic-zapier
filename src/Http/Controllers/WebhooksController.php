@@ -1,11 +1,11 @@
 <?php
 
-namespace Delegator\StatamicZapier\Http\Controllers;
+namespace Delegator\ZapierForms\Http\Controllers;
 
 use Statamic\Facades\User;
 use Illuminate\Http\Request;
 use Statamic\CP\PublishForm;
-use Delegator\StatamicZapier\Webhooks;
+use Delegator\ZapierForms\Webhooks;
 use Statamic\Http\Controllers\CP\CpController;
 use Statamic\Support\Arr;
 use Inertia\Inertia;
@@ -24,10 +24,10 @@ class WebhooksController extends CpController
             ->preProcess();
 
         return PublishForm::make($blueprint)
-          ->title("Statamic Zapier")
+          ->title("Zapier Forms")
           ->icon('hierarchy-hub-integration-connection')
           ->values($fields->values()->all())
-          ->submittingTo(cp_route('statamic-zapier.update'), 'POST');
+          ->submittingTo(cp_route('zapier-forms.update'), 'POST');
     }
 
     public function update(Request $request)

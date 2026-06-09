@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Delegator\StatamicZapier\Http\Controllers\WebhooksController;
+use Delegator\ZapierForms\Http\Controllers\WebhooksController;
 
-Route::prefix('statamic-zapier')->name('statamic-zapier.')->group(function () {
+Route::prefix('zapier-forms')->name('zapier-forms.')->group(function () {
     Route::get('/', [WebhooksController::class, 'edit'])->name('index');
     Route::post('/', [WebhooksController::class, 'update'])->name('update');
 });
